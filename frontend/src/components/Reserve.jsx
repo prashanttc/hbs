@@ -68,7 +68,7 @@ const Reserve = ({ setOpen, hotelId , hotelname}) => {
       };
      
       await axios.post(
-        "http://localhost:8800/api/bookings",
+        "https://hbs-a2w9.onrender.com/api/bookings",
         bookingdetails
       );
 
