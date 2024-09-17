@@ -1,9 +1,10 @@
 import React from 'react';
 import useFetch from '../hooks/useFetch.js';
 
+
 const Feature = () => {
   const { data, loading } = useFetch(
-    "http://localhost:8800/api/hotels/countbyCity?cities=indore,goa,mumbai,pune,delhi"
+    "https://hbs-a2w9.onrender.com/api/hotels/countbyCity?cities=indore,goa,mumbai,pune,delhi"
   );
 
   return (

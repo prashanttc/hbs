@@ -11,7 +11,7 @@ import useFetch from "../hooks/useFetch.js";
 
 const Reserve = ({ setOpen, hotelId , hotelname}) => {
   const { data, loading, error } = useFetch(
-    `http://localhost:8800/api/hotels/rooms/${hotelId}`
+    `https://hbs-a2w9.onrender.com/api/hotels/rooms/${hotelId}`
   );
   const { date } = useContext(SearchContext);
   const { user } = useContext(AuthContext);
@@ -47,7 +47,7 @@ const Reserve = ({ setOpen, hotelId , hotelname}) => {
       await Promise.all(
         selectedRoom.map(async (roomId) => {
           const res = await axios.put(
-            `http://localhost:8800/api/rooms/availability/${roomId}`,
+            `https://hbs-a2w9.onrender.com/api/rooms/availability/${roomId}`,
             {
               dates: alldates,
               
