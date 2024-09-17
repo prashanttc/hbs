@@ -16,7 +16,7 @@ const List = () => {
   const [option, setOption] = useState(location.state.option);
   const [openDate, setOpenDate] = useState(false);
   const { data, loading, error, reFetch } = useFetch(
-    `http://localhost:8800/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999999}`
+    `https://hbs-a2w9.onrender.com/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999999}`
   );
 
   const handleclick = () => {
