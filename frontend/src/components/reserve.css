@@ -1,0 +1,132 @@
+.reserve {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.418);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.rcontainer {
+  width: 90%;
+  max-width: 60%;
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.rClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.ritem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.info2 {
+  width: 100%;
+}
+
+.riteminfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.rtitle {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.rdesc {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.rmax {
+  font-size: 12px;
+}
+
+.rprice {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.rSelectRooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 17px;
+  color: gray;
+}
+
+.room {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.rButton {
+  border: none;
+  padding: 10px 20px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Media Queries for responsiveness */
+
+@media (min-width: 600px) {
+  .rcontainer {
+    width: 80%;
+  }
+
+  .ritem {
+    gap: 40px;
+  }
+
+  .rtitle,
+  .rdesc {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rcontainer {
+    width: 60%;
+  }
+
+  .ritem {
+    gap: 50px;
+  }
+
+  .rtitle {
+    font-size: 22px;
+  }
+
+  .rdesc {
+    font-size: 18px;
+  }
+
+  .rprice {
+    font-size: 24px;
+  }
+}
