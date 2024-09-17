@@ -15,7 +15,7 @@ const Mybooking = () => {
       try {
         const userId = user.details._id;
         const response = await axios.get(
-          `http://localhost:8800/api/bookings/${userId}`
+          `https://hbs-a2w9.onrender.com/api/bookings/${userId}`
         );
         setBookings(response.data);
       } catch (err) {
@@ -31,7 +31,7 @@ const Mybooking = () => {
   // Handle cancellation of booking
   const handleCancelBooking = async (bookingId) => {
       try {
-      await axios.delete(`http://localhost:8800/api/bookings/${bookingId}`);
+      await axios.delete(`https://hbs-a2w9.onrender.com/api/bookings/${bookingId}`);
       setBookings((prevBookings) => 
         prevBookings.filter((booking) => booking._id !== bookingId)
       );
