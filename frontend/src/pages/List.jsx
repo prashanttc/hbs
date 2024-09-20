@@ -1,3 +1,4 @@
+import ReplayIcon from '@mui/icons-material/Replay';
 import React, { useState } from "react";
 import { DateRange } from "react-date-range";
 import Navbar from "../components/Navbar";
@@ -102,8 +103,10 @@ const List = () => {
 
           {/* Search Results */}
           <div className="flex-1">
-            {loading ? (
+          {loading ? (
               <p>Loading...</p>
+            ) : data.length === 0 ? ( // Check if no hotels are found
+              <p className='text-2xl mt-[10%] ml-[10%]'>No hotels found for the selected destination<ReplayIcon/></p>
             ) : (
               data.map((item) => <Searchitem item={item} key={item._id} />)
             )}
