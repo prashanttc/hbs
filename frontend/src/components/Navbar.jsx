@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -34,12 +34,12 @@ const Navbar = () => {
                     Sign In
                   </button>
                 </Link>
-                <button
-                  type="button"
+                <Link to="/register"
+                 type="button"
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Get Started
-                </button>
+                </Link>
               </>
             )}
             {user &&(

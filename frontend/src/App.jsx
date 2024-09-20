@@ -6,6 +6,7 @@ import Mybooking from './pages/Mybooking.jsx'
 import Login from './pages/Login';
 import { AuthContext } from './context/AuthContext.jsx';
 import Hotel from './pages/Hotel';
+import Register from './pages/Register.jsx';
 
 const App = () => {
   // ProtectedRoute component to guard routes
@@ -24,6 +25,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/' element={<Home />} />
 
           
