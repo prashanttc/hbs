@@ -1,7 +1,7 @@
 import User from '../models/user.js';
 
 import bcrypt from 'bcrypt';
-import User from '../models/user.js'; // Adjust the import based on your file structure
+// Adjust the import based on your file structure
 
 export const updateUser = async (req, res, next) => {
   try {
