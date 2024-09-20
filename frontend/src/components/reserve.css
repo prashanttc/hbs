@@ -13,7 +13,7 @@
 
 .rcontainer {
   width: 90%;
-  max-width: 60%;
+  max-width: 600px; /* Set a max width for larger screens */
   background-color: white;
   padding: 20px;
   position: relative;
@@ -48,28 +48,28 @@
 
 .rtitle {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
 }
 
 .rdesc {
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1rem; /* 16px */
 }
 
 .rmax {
-  font-size: 12px;
+  font-size: 0.75rem; /* 12px */
 }
 
 .rprice {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem; /* 20px */
 }
 
 .rSelectRooms {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  font-size: 17px;
+  font-size: 1.0625rem; /* 17px */
   color: gray;
 }
 
@@ -96,6 +96,7 @@
 
 @media (min-width: 600px) {
   .rcontainer {
+    height: 80vh;
     width: 80%;
   }
 
@@ -105,13 +106,15 @@
 
   .rtitle,
   .rdesc {
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
   }
 }
 
 @media (min-width: 1024px) {
   .rcontainer {
     width: 60%;
+    height: 90vh;
+ overflow: scroll;
   }
 
   .ritem {
@@ -119,14 +122,19 @@
   }
 
   .rtitle {
-    font-size: 22px;
+    font-size: 1.375rem; /* 22px */
   }
 
   .rdesc {
-    font-size: 18px;
+    font-size: 1.125rem; /* 18px */
   }
 
   .rprice {
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px */
   }
+}
+
+/* Optional: Add a hover effect for the button */
+.rButton:hover {
+  background-color: #005ea2; /* Darker shade for hover effect */
 }

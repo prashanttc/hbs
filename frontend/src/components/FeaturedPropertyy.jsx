@@ -10,7 +10,7 @@ const FeaturedPropertyy = () => {
     <div className="mx-5 md:mx-[10%] mt-8"> {/* Adjust margins for responsiveness */}
       <h2 className="text-2xl md:text-3xl font-bold mb-5">Homes guests love</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 cursor-pointer">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-5 cursor-pointer">
         {loading ? (
           "Loading..."
         ) : (
@@ -26,8 +26,8 @@ const FeaturedPropertyy = () => {
                     src={item.photos[0]}
                     alt={item.name}
                   />
-                  <div className="p-4 relative">
-                    <h3 className="font-bold text-lg md:text-xl">
+                 <div className="p-4 relative">
+                    <h3 className="font-bold md:text-xl sm:text-sm">
                       {item.name}
                     </h3>
                     <h6 className="text-slate-500 text-sm md:text-base">

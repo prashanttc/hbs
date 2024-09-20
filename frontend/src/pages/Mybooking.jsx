@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 import axios from "axios";
 
 const Mybooking = () => {
@@ -35,7 +36,13 @@ const Mybooking = () => {
       setBookings((prevBookings) => 
         prevBookings.filter((booking) => booking._id !== bookingId)
       );
-      alert("Booking cancelled successfully!");
+      Swal.fire({
+        title: "Success!",
+        text: "booking has been cancelled succesfully.",
+        icon: "success",
+        timer: 2000, // 3 seconds
+        showConfirmButton: false,
+      });
     } catch (err) {
       console.error("Error cancelling booking:", err);
       alert("Failed to cancel booking.");

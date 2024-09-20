@@ -59,19 +59,19 @@ const Header = ({ type }) => {
             <FontAwesomeIcon icon={faBed} />
             <span>Stays</span>
           </li>
-          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5">
+          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5 hidden md:block">
             <FontAwesomeIcon icon={faPlane} />
             <span>Flights</span>
           </li>
-          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5">
+          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5  hidden md:block">
             <FontAwesomeIcon icon={faCar} />
             <span>Car Rentals</span>
           </li>
-          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5">
+          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5  hidden md:block">
             <FontAwesomeIcon icon={faBed} />
             <span>Attractions</span>
           </li>
-          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5">
+          <li className="flex gap-3 p-2 sm:p-3 items-center justify-center text-lg sm:text-xl px-3 sm:px-5 hidden md:block">
             <FontAwesomeIcon icon={faTaxi} />
             <span>Airports Taxi</span>
           </li>
@@ -108,10 +108,10 @@ const Header = ({ type }) => {
                 <input
                   className="border-none w-full sm:w-auto placeholder:text-slate-900 text-slate-950 focus:outline-none"
                   type="text"
-                  onChange={(e) => setDestination(e.target.value)}
+                  onChange={(e) => setDestination(e.target.value.toLocaleLowerCase())}
                   placeholder="Where are you going?"
                 />
-              </div>
+              </div>  
               <div className="date flex items-center gap-2 cursor-pointer relative">
                 <FontAwesomeIcon
                   className="text-slate-600 text-xl"
@@ -207,6 +207,7 @@ const Header = ({ type }) => {
               <button
                 type="button"
                 onClick={handleSearch}
+                disabled={!destination.trim()}
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2"
               >
                 Search
