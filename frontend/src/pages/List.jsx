@@ -1,5 +1,5 @@
-import ReplayIcon from '@mui/icons-material/Replay';
-import React, { useState } from "react";
+import ReplayIcon from "@mui/icons-material/Replay";
+import React, { useContext, useState } from "react";
 import { DateRange } from "react-date-range";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
@@ -7,21 +7,35 @@ import Searchitem from "../components/Searchitem";
 import { useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import useFetch from "../hooks/useFetch";
+import { SearchContext } from "../context/SearchContext";
 
 const List = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
+
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
   const [option, setOption] = useState(location.state.option);
   const [openDate, setOpenDate] = useState(false);
   const { data, loading, error, reFetch } = useFetch(
-    `https://hbs-a2w9.onrender.com/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999999}`
+    `https://hbs-a2w9.onrender.com/api/hotels?city=${destination}&min=${
+      min || 0
+    }&max=${max || 999999}`
   );
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+      color: "#3f51b5",
+    },
+  ]);
+
+  const {dispatch} = useContext(SearchContext)
 
   const handleclick = () => {
-    reFetch(); // Call reFetch only on button click
+   dispatch({ type: "NEW_SEARCH", payload: { destination, date ,option } });
+    reFetch(); 
   };
 
   const handleOption = (name) => {
@@ -56,18 +70,23 @@ const List = () => {
               <div className="h-12 mt-2 flex items-center w-full bg-white rounded-md">
                 <span
                   onClick={() => setOpenDate(!openDate)}
+                  placeholder={date}
                   className="cursor-pointer font-semibold text-lg text-black pl-4"
                 >
-                  {`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(date[0].endDate, "dd/MM/yyyy")}`}
+                  {`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
+                    date[0].endDate,
+                    "dd/MM/yyyy"
+                  )}`}
                 </span>
               </div>
               {openDate && (
                 <DateRange
                   className="w-full md:w-[24vw]"
-                  moveRangeOnFirstSelection={false}
+                  editableDateInputs={true}
                   onChange={(item) => setDate([item.selection])}
+                  moveRangeOnFirstSelection={false}
                   minDate={new Date()}
-                  range={date}
+                  ranges={date}
                 />
               )}
             </div>
@@ -103,10 +122,13 @@ const List = () => {
 
           {/* Search Results */}
           <div className="flex-1">
-          {loading ? (
+            {loading ? (
               <p>Loading...</p>
             ) : data.length === 0 ? ( // Check if no hotels are found
-              <p className='text-2xl mt-[10%] ml-[10%]'>No hotels found for the selected destination<ReplayIcon/></p>
+              <p className="text-2xl mt-[10%] ml-[10%]">
+                No hotels found for the selected destination
+                <ReplayIcon />
+              </p>
             ) : (
               data.map((item) => <Searchitem item={item} key={item._id} />)
             )}

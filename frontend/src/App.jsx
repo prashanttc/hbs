@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import { AuthContext } from './context/AuthContext.jsx';
 import Hotel from './pages/Hotel';
 import Register from './pages/Register.jsx';
+import ScrollTop from './components/ScrollTop.jsx';
 
 const App = () => {
   // ProtectedRoute component to guard routes
@@ -23,6 +24,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
+      <ScrollTop/>
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />

@@ -137,7 +137,7 @@ const Hotel = () => {
                   <li>Terrace</li>
                   <li>Free parking</li>
                 </ul>
-                <h1 className="text-xl font-bold mt-4 text-gray-800">₹{days * option.room * data.cheapestPrice}</h1>
+                <h1 className="text-xl font-bold mt-4 text-gray-800">₹{days * data.cheapestPrice}</h1>
                 <button
                   className="mt-4 w-full px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                   onClick={handleClick}
